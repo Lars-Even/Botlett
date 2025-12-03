@@ -1,3 +1,15 @@
+/*
+
+1. Vi logger inn discord-botten
+2. Bruker bun.Serve for å sette opp en enkel HTTP-Server
+3. Videresender all data til handleGitHubEvent.
+
+
+Vi sorterer enkelt informasjonen vi har og sender den til discord kanalen lagt inn i .env
+
+Skrevet av Lars-Even
+*/
+
 import {
     Client,
     GatewayIntentBits,

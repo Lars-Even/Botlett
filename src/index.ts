@@ -14,20 +14,26 @@ import {
     Client,
     GatewayIntentBits,
     EmbedBuilder,
-    TextChannel,
+    type TextChannel,
     Events,
 } from "discord.js";
 
 import { verifySignature } from "./security";
 import { handleGitHubEvent } from "./handlers";
+import { handlePrefixCommand } from "./commandHandler";
 
 const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+    ],
 });
 
 const DISCORD_TOKEN = Bun.env.DISCORD_TOKEN;
 const CHANNEL_ID = Bun.env.DISCORD_CHANNEL_ID;
 const PORT = 1337;
+const PREFIX = "!";
 
 if (!DISCORD_TOKEN) {
     console.error("Mangler DISCORD_TOKEN");
@@ -38,6 +44,10 @@ if (!CHANNEL_ID) {
 }
 
 client.login(DISCORD_TOKEN);
+
+client.once(Events.MessageCreate, (message) => {
+    handlePrefixCommand(message, PREFIX);
+});
 
 client.once(Events.ClientReady, (c) => {
     console.log(`Logged in as ${client.user?.tag}`);

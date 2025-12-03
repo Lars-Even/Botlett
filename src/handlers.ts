@@ -36,7 +36,7 @@ export async function handleGitHubEvent(
                 value: `[${payload.head_commit?.message || "Ingen informasjon: "}](${payload.head_commit?.url})`,
             })
             .setTimestamp();
-        if (embed.data.description && embed.data.description.length > 500) {
+        if (embed.data.description && embed.data.description.length > 4000) {
             embed.setDescription(
                 `**${payload.pusher.name}** pushet **${payload.commits.length} commit(s) \n\n` +
                     `[Listen er for lang. Trykk her for å se endringer](${payload.compare})`,

@@ -16,3 +16,10 @@ To run:
 ```bash
 bun run index.ts
 ```
+
+
+
+
+.env-fil eksister kun lokalt på hostserver, gi en lyd til Lars om du trenger tokens eller github secret.
+
+Den poster alle Push eller Pulls til Discord-kanelen som er spesifisert i .env filen, hvor man kan endre "DISCORD_CHANNEL_ID".

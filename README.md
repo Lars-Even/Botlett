@@ -27,4 +27,4 @@ ngrok http 1337
 
 Botten blir hostet lokalt via Zed og Bun, ngrok brukes som en "free" web-tunnel og hostes via wsl.
 
-1
+12

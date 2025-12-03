@@ -20,7 +20,7 @@ export async function handleGitHubEvent(
             .map((commit: any) => {
                 const shortHash = commit.id.substring(0, 7);
                 const firstLine = commit.message.split("\n")[0];
-                return `[\`${shortHash}\'](${commit.url}) - ${firstLine}`;
+                return `[\`${shortHash}\`](${commit.url}) - ${firstLine}`;
             })
             .join("\n");
 

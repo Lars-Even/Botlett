@@ -16,6 +16,14 @@ export async function handleGitHubEvent(
     }
 
     if (event === "push") {
+        const commitList = payload.commits
+            .map((commit: any) => {
+                const shortHash = commit.id.substring(0, 7);
+                const firstLine = commit.message.split("\n")[0];
+                return `[\`${shortHash}\'](${commit.url}) - ${firstLine}`;
+            })
+            .join("\n");
+
         const embed = new EmbedBuilder()
             .setColor(0x0099ff)
             .setTitle(`Ny Push til ${payload.repository.full_name}`)
@@ -28,6 +36,13 @@ export async function handleGitHubEvent(
                 value: `[${payload.head_commit?.message || "Ingen informasjon: "}](${payload.head_commit?.url})`,
             })
             .setTimestamp();
+        if (embed.data.description && embed.data.description.length > 500) {
+            embed.setDescription(
+                `**${payload.pusher.name}** pushet **${payload.commits.length} commit(s) \n\n` +
+                    `[Listen er for lang. Trykk her for å se endringer](${payload.compare})`,
+            );
+        }
+
         channel.send({ embeds: [embed] });
     } else if (event === "pull_request") {
         const action = payload.action;

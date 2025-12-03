@@ -1,4 +1,9 @@
-# devbot
+# Botlett
+
+
+![Botlett](https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/09/pokemon-fan-designs-diglett-ability-forms.jpg)
+
+
 
 To install dependencies:
 
@@ -11,5 +16,3 @@ To run:
 ```bash
 bun run index.ts
 ```
-
-This project was created using `bun init` in bun v1.2.23. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.

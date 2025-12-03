@@ -19,12 +19,13 @@ export async function handleGitHubEvent(
         const embed = new EmbedBuilder()
             .setColor(0x0099ff)
             .setTitle(`Ny Push til ${payload.repository.full_name}`)
+            .setURL(payload.compare)
             .setDescription(
                 `**${payload.pusher.name}** pushed ${payload.commits.length} commit(s)`,
             )
             .addFields({
-                name: "Latest Commit",
-                value: payload.head_commit?.message || "No message",
+                name: "Siste Commit",
+                value: `[${payload.head_commit?.message || "Ingen informasjon: "}](${payload.head_commit?.url})`,
             })
             .setTimestamp();
         channel.send({ embeds: [embed] });

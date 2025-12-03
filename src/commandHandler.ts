@@ -2,12 +2,15 @@ import { type Message } from "discord.js";
 import { type Command } from "./types";
 
 /*IMPORTER COMMANDS HER*/
+import { ping } from "./commands/ping";
 
 const commands = new Map<string, Command>();
 
 /*COMMAND EKSEMPEL
 commands.set(ping.name, ping)
 */
+
+commands.set(ping.name, ping);
 
 export async function handlePrefixCommand(message: Message, prefix: string) {
     if (message.author.bot || !message.content.startsWith(prefix)) return;

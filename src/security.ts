@@ -1,6 +1,8 @@
 /*
 Vi sjekker at sha256 signaturen til GITHUB_SECRET er like den sent av GitHub,
 hvis vi ikke har spesifisert lokal GITHUB_SECRET returnerer den bare "True" ".
+
+Skrevet av Lars-Even
 */
 
 import { createHmac, timingSafeEqual } from "node:crypto";

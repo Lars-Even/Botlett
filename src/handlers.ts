@@ -1,3 +1,17 @@
+/*
+Vi leser github-webhooken for å kunne sende notifikasjoner i discord
+
+Vi har tre funksjonaliteter:
+  ping: Sjekker om pingen fra github fungerer, og vi får koblet oss opp mot Repository
+  push: Lister commits, pusher navn, og sender meldingene videre, har satt en begrensing på 3000 karakterer
+  pull: Sender notifikasjon om alt som faller under "PR Actions"
+
+
+
+
+Skrevet av Lars-Even
+*/
+
 import { EmbedBuilder, type TextChannel } from "discord.js";
 
 export async function handleGitHubEvent(

@@ -29,7 +29,7 @@ export async function handleGitHubEvent(
             .setTitle(`Ny Push til ${payload.repository.full_name}`)
             .setURL(payload.compare)
             .setDescription(
-                `**${payload.pusher.name}** pushed ${payload.commits.length} commit(s)`,
+                `**${payload.pusher.name}** pushed ${payload.commits.length} commit(s)\n\n${commitList}`,
             )
             .addFields({
                 name: "Siste Commit",
@@ -43,7 +43,7 @@ export async function handleGitHubEvent(
             );
         }
 
-        channel.send({ embeds: [embed] });
+        await channel.send({ embeds: [embed] });
     } else if (event === "pull_request") {
         const action = payload.action;
         const pr = payload.pull_request;

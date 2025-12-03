@@ -6,9 +6,6 @@ Vi har tre funksjonaliteter:
   push: Lister commits, pusher navn, og sender meldingene videre, har satt en begrensing på 3000 karakterer
   pull: Sender notifikasjon om alt som faller under "PR Actions"
 
-
-
-
 Skrevet av Lars-Even
 */
 

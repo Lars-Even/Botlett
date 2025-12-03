@@ -17,9 +17,12 @@ To run:
 bun run index.ts
 ```
 
+```bash
+ngrok http 1337
+```
 
 
+.env-fil eksister kun lokalt på hostserver, gi en lyd til Lars om du trenger tokens eller github secret. Den poster alle Push eller Pulls til Discord-kanelen som er spesifisert i .env filen, hvor man kan endre "DISCORD_CHANNEL_ID".
 
-.env-fil eksister kun lokalt på hostserver, gi en lyd til Lars om du trenger tokens eller github secret.
 
-Den poster alle Push eller Pulls til Discord-kanelen som er spesifisert i .env filen, hvor man kan endre "DISCORD_CHANNEL_ID".
+Botten blir hostet lokalt via Zed og Bun, ngrok brukes som en "free" web-tunnel og hostes via wsl.

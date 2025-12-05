@@ -45,7 +45,7 @@ if (!CHANNEL_ID) {
 
 client.login(DISCORD_TOKEN);
 
-client.once(Events.MessageCreate, (message) => {
+client.on(Events.MessageCreate, (message) => {
     handlePrefixCommand(message, PREFIX);
 });
 

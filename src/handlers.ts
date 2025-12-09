@@ -31,6 +31,13 @@ export async function handleGitHubEvent(
     }
 
     if (event === "push") {
+        const ref = payload.ref || "";
+        const isMainOrMaster = ref.endsWith("main") || ref.endsWith("master");
+
+        if (!isMainOrMaster) {
+            return;
+        }
+
         const commitList = payload.commits
             .map((commit: any) => {
                 const shortHash = commit.id.substring(0, 7);

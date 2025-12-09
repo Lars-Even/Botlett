@@ -5,7 +5,7 @@ export const ruben: Command = {
     description: "gif",
     execute: async (message) => {
         const gifUrl =
-            "https://media1.tenor.com/m/-SEMhJgNq-AAAAAC/ruben-vareide-ruben.gif";
+            "https://tenor.com/view/ruben-vareide-ruben-vareide-prebz-og-dennis-prebz-gif-26529878";
         await message.reply(gifUrl);
     },
 };

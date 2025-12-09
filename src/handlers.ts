@@ -9,6 +9,10 @@ Vi har tre funksjonaliteter:
 Skrevet av Lars-Even
 */
 
+/*
+Endring 2: Legge til sortering av branches, så den kun oppdaterer når det er endringer i main/master
+*/
+
 import { EmbedBuilder, type TextChannel } from "discord.js";
 
 export async function handleGitHubEvent(

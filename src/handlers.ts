@@ -67,8 +67,11 @@ export async function handleGitHubEvent(
 
         await channel.send({ embeds: [embed] });
     } else if (event === "pull_request") {
-        const action = payload.action;
         const pr = payload.pull_request;
+        const targetBranch = pr.base?.ref;
+        if (targetBranch != "main" && targetBranch != "master") return;
+
+        const action = payload.action;
 
         let title = `PR ${action}: #${pr.number}`;
         let color = 0xffa500;

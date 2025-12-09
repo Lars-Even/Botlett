@@ -3,6 +3,7 @@ import { type Command } from "./types";
 
 /*IMPORTER COMMANDS HER*/
 import { ping } from "./commands/ping";
+import { ruben } from "./commands/ruben";
 
 const commands = new Map<string, Command>();
 
@@ -11,6 +12,7 @@ commands.set(ping.name, ping)
 */
 
 commands.set(ping.name, ping);
+commands.set(ruben.name, ruben);
 
 export async function handlePrefixCommand(message: Message, prefix: string) {
     if (message.author.bot || !message.content.startsWith(prefix)) return;

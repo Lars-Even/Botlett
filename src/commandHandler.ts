@@ -4,6 +4,7 @@ import { type Command } from "./types";
 /*IMPORTER COMMANDS HER*/
 import { ping } from "./commands/ping";
 import { ruben } from "./commands/ruben";
+import { anja } from "./commands/anja";
 
 const commands = new Map<string, Command>();
 
@@ -13,6 +14,7 @@ commands.set(ping.name, ping)
 
 commands.set(ping.name, ping);
 commands.set(ruben.name, ruben);
+commands.set(anja.name, anja);
 
 export async function handlePrefixCommand(message: Message, prefix: string) {
     if (message.author.bot || !message.content.startsWith(prefix)) return;

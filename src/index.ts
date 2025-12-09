@@ -73,10 +73,20 @@ Bun.serve({
                 const eventType = req.headers.get("x-github-event");
 
                 if (CHANNEL_ID) {
-                    const channel = (await client.channels.fetch(
-                        CHANNEL_ID,
-                    )) as TextChannel;
-                    if (channel) handleGitHubEvent(channel, eventType, payload);
+                    try {
+                        const channel = (await client.channels.fetch(
+                            CHANNEL_ID,
+                        )) as TextChannel;
+                        if (channel)
+                            handleGitHubEvent(channel, eventType, payload);
+                    } catch (discordError) {
+                        console.error("Failed to connect to API");
+                        console.error(discordError);
+                        return new Response(
+                            "Received, but discord was unreachable",
+                            { status: 200 },
+                        );
+                    }
                 }
 
                 return new Response("Webhook received", { status: 200 });
